@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión • Recepciones Mishell - Quito</title>
+  <meta name="description" content="Plataforma de gestión administrativa y análisis de datos para el salón de eventos Recepciones Mishell en Quito.">
+  
+  <!-- Estilos Globales -->
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C86D3B'><path d='M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z'/></svg>">
+</head>
+<body>
+
+  <main class="login-viewport">
+    <div class="login-container">
+      
+      <!-- Cabecera Institucional (Figura 5) -->
+      <header class="brand-header">
+        <div class="brand-icon-wrapper" aria-hidden="true">
+          <!-- Icono Cuerno de Celebración / Fiesta SVG -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5.8 11.3 2 22l10.7-3.79"/>
+            <path d="M4 3h.01"/>
+            <path d="M22 8h.01"/>
+            <path d="M15 2h.01"/>
+            <path d="M22 20h.01"/>
+            <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/>
+            <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.66-.7 1.12-1.37.99l-.3-.06c-.86-.17-1.63.49-1.63 1.37v.42c0 .84-.65 1.53-1.49 1.55l-1.41.05"/>
+          </svg>
+          <span class="sparkle-dot"></span>
+        </div>
+
+        <h1 class="brand-title">Recepciones Mishell</h1>
+        <div class="brand-subtitle">
+          <span class="dot"></span>
+          <span>Plataforma de Gestión Administrativa</span>
+          <span class="dot"></span>
+          <span>Quito 2026</span>
+        </div>
+        
+        <div class="badge-location">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>Centro de Eventos & Banquetes Quito</span>
+        </div>
+      </header>
+
+      <!-- Selector de Rol / Perfil (Figura 5) -->
+      <div class="role-tabs" role="tablist" aria-label="Selección de perfil">
+        <button type="button" class="role-tab-btn active" id="tab-admin" role="tab" aria-selected="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Administrador</span>
+        </button>
+        <button type="button" class="role-tab-btn" id="tab-recepcion" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span>Dueño del local</span>
+        </button>
+      </div>
+
+      <!-- Tarjeta Descriptiva del Perfil Activo -->
+      <div class="role-info-card" id="role-info-card">
+        <div class="role-info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="role-info-text">
+          <strong id="role-info-title">Perfil Administrador</strong>
+          <span id="role-info-desc">Gestión financiera, contratos nupciales, cotizaciones y control total.</span>
+        </div>
+      </div>
+
+      <!-- Contenedor de Alerta de Feedback -->
+      <div id="login-alert" class="alert-feedback" role="alert" aria-live="polite">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span id="login-alert-text">Mensaje de error</span>
+      </div>
+
+      <!-- Formulario de Inicio de Sesión -->
+      <form id="login-form" novalidate>
+        
+        <!-- Campo: Usuario / Correo -->
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="identificador" class="form-label">Correo institucional / Usuario</label>
+            <span class="form-helper">Uso interno</span>
+          </div>
+          <div class="input-with-icon">
+            <span class="input-icon-left" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              id="identificador" 
+              name="identificador" 
+              class="form-control" 
+              placeholder="admin@recepcionesmishell.ec" 
+              value="admin@recepcionesmishell.ec"
+              required 
+              autocomplete="username"
+            >
+          </div>
+        </div>
+
+        <!-- Campo: Contraseña -->
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="password" class="form-label">Contraseña de acceso</label>
+            <a href="#" id="link-forgot-pass" class="form-helper">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div class="input-with-icon">
+            <span class="input-icon-left" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </span>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-control" 
+              placeholder="••••••••••••••••" 
+              value="Admin2026*"
+              required 
+              autocomplete="current-password"
+            >
+            <button type="button" class="input-icon-right" id="toggle-password" aria-label="Mostrar u ocultar contraseña">
+              <svg id="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Fila Extra: Recordar Sesión & Dispositivo -->
+        <div class="form-extra-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember-me" checked>
+            <span>Recordar sesión en este dispositivo</span>
+          </label>
+          <span class="badge-device">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+            <span>iPad / Móvil</span>
+          </span>
+        </div>
+
+        <!-- Botón de Envío -->
+        <button type="submit" class="btn-primary-block" id="btn-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+            <polyline points="10 17 15 12 10 7"/>
+            <line x1="15" y1="12" x2="3" y2="12"/>
+          </svg>
+          <span id="btn-submit-text">Iniciar Sesión como Administrador</span>
+        </button>
+
+      </form>
+
+      <!-- Acceso Rápido • Modo Demo (Figura 5) -->
+      <section class="demo-section" aria-label="Acceso rápido para demostración">
+        <div class="demo-header-row">
+          <span class="demo-title">Acceso Rápido • Modo Demo</span>
+          <span class="demo-badge-year">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            Perfiles 2026
+          </span>
+        </div>
+
+        <!-- Demo Card 1: Admin -->
+        <div class="demo-user-card" id="demo-user-admin" role="button" tabindex="0" title="Cargar credenciales de Administrador">
+          <div class="demo-user-left">
+            <div class="demo-avatar admin-avatar" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <div class="demo-user-name">
+                <span>Admin</span>
+                <span class="pill-role admin">Admin</span>
+              </div>
+              <div class="demo-user-email">admin@recepcionesmishell.ec</div>
+            </div>
+          </div>
+          <span class="demo-arrow-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Demo Card 2: Elvia Casagallo -->
+        <div class="demo-user-card" id="demo-user-recepcion" role="button" tabindex="0" title="Cargar credenciales de Sala / Recepción">
+          <div class="demo-user-left">
+            <div class="demo-avatar sala-avatar" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="demo-user-name">
+                <span>Elvia Casagallo</span>
+                <span class="pill-role sala">Sala / Recepción</span>
+              </div>
+              <div class="demo-user-email">elvia@recepcionesmishell.ec</div>
+            </div>
+          </div>
+          <span class="demo-arrow-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Tarjeta Informativa de Evento Activo (Figura 5) -->
+        <div class="event-preview-card">
+          <div class="event-preview-thumb">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="event-preview-content">
+            <div class="event-preview-title">
+              <span>Salón Principal Cotopaxi</span>
+              <span class="pill-status-active">Activo</span>
+            </div>
+            <div class="event-preview-desc">
+              Próximo evento: <strong>Boda Andrade</strong> • Sábado • 180 invitados confirmados
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Pie de Seguridad y Versión -->
+      <footer class="login-footer-security">
+        <div class="security-badge-row">
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Conexión Encriptada SSL 256-bit
+          </span>
+          <span>•</span>
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+            Servidor Local Quito
+          </span>
+        </div>
+        <p>Recepciones Mishell Gestión Integral • Versión 2.4 (Build 2026.04)</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Script Cliente del Login -->
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

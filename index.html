@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrativo • Recepciones Mishell</title>
+  <meta name="description" content="Plataforma de gestión administrativa, cotizaciones, reservas y análisis de datos para Recepciones Mishell en Quito.">
+  
+  <!-- Estilos Globales -->
+  <link rel="stylesheet" href="assets/css/estilos.css?v=20261111_7">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C86D3B'><path d='M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z'/></svg>">
+</head>
+<body>
+
+  <div class="app-wrapper">
+    <div class="app-shell">
+
+      <!-- ====================================================================
+           CABECERA SUPERIOR INSTITUCIONAL (Figuras 6, 7 y 8)
+           ==================================================================== -->
+      <header class="app-header">
+        <div class="app-header-inner">
+          
+          <div class="header-brand-group">
+            <div class="header-brand-icon" aria-hidden="true">
+              <!-- Cuerno / Celebración SVG -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5.8 11.3 2 22l10.7-3.79"/>
+                <path d="M4 3h.01"/>
+                <path d="M22 8h.01"/>
+                <path d="M15 2h.01"/>
+                <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/>
+              </svg>
+            </div>
+            <div class="header-brand-text">
+              <span class="header-brand-title">Recepciones Mishell</span>
+              <span class="header-brand-subtitle" id="current-module-title">CALENDARIO</span>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <!-- Botón de Notificaciones -->
+            <button type="button" class="btn-icon-header" id="btn-notifications" aria-label="Ver notificaciones del sistema" title="Notificaciones">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              <span class="badge-notification-dot"></span>
+            </button>
+
+            <!-- Botón Avatar de Perfil -->
+            <button type="button" class="user-avatar-btn" id="user-avatar-btn" aria-label="Menú de usuario" title="Cuenta de Administrador">
+              <span id="user-avatar-initials">AD</span>
+            </button>
+
+            <!-- Menú Desplegable de Usuario -->
+            <div class="user-dropdown" id="user-dropdown" role="menu" aria-label="Opciones de cuenta">
+              <div class="dropdown-user-header">
+                <div class="user-avatar-btn" style="width:34px;height:34px;font-size:0.75rem;">
+                  <span id="dropdown-avatar-initials">AD</span>
+                </div>
+                <div class="dropdown-user-info">
+                  <span class="dropdown-user-name" id="dropdown-user-name">Admin</span>
+                  <span class="dropdown-user-role" id="dropdown-user-role">Super Administrador</span>
+                  <span class="dropdown-user-email" id="dropdown-user-email">admin@recepcionesmishell.ec</span>
+                </div>
+              </div>
+              <button type="button" class="dropdown-btn-logout" id="btn-logout" role="menuitem">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                  <polyline points="16 17 21 12 16 7"/>
+                  <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                <span>Cerrar Sesión</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </header>
+
+      <!-- ====================================================================
+           ÁREA PRINCIPAL MODULAR (CONTENEDOR DE VISTAS)
+           ==================================================================== -->
+      <main class="app-main" id="main-content">
+
+        <!-- ==========================================
+             VISTA 1: CALENDARIO DE RESERVAS (Figura 6)
+             ========================================== -->
+        <section id="view-calendario" class="module-view active" aria-labelledby="heading-calendario">
+          
+          <!-- Banner Sede Exclusiva (Figura 6) -->
+          <div class="venue-banner-card">
+            <div class="venue-banner-top">
+              <div class="venue-icon-box" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                  <line x1="9" y1="22" x2="9" y2="22.01"/>
+                  <line x1="15" y1="22" x2="15.01" y2="22.01"/>
+                  <line x1="9" y1="6" x2="9" y2="6.01"/>
+                  <line x1="15" y1="6" x2="15.01" y2="6.01"/>
+                  <line x1="9" y1="10" x2="9" y2="10.01"/>
+                  <line x1="15" y1="10" x2="15.01" y2="10.01"/>
+                  <line x1="9" y1="14" x2="9" y2="14.01"/>
+                  <line x1="15" y1="14" x2="15.01" y2="14.01"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="venue-banner-title" id="heading-calendario">Salón Principal Exclusivo</h2>
+                <span class="badge-venue-seat">Sede Única</span>
+              </div>
+            </div>
+            <p class="venue-banner-desc">
+              Recepciones Mishell • Capacidad máxima garantizada hasta 120 invitados con pista central, servicio de gala y bloqueo automático de fecha por reserva.
+            </p>
+          </div>
+
+          <!-- Contenedor dinámico del Calendario (se programa en el módulo de reservas) -->
+          <div id="calendario-component-container">
+            <!-- El componente interactivo del calendario se inyectará aquí -->
+          </div>
+
+        </section>
+
+        <!-- ==========================================
+             VISTA 2: COTIZADOR INTELIGENTE (Figuras 8, 9, 10 y 11)
+             ========================================== -->
+        <section id="view-cotizador" class="module-view" aria-label="Cotizador Inteligente de Eventos">
+          <div id="cotizador-component-container">
+            <!-- El asistente paso a paso del cotizador se inyectará aquí -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VISTA 3: GESTIÓN DE CLIENTES (Figura 7)
+             ========================================== -->
+        <section id="view-clientes" class="module-view" aria-label="Directorio y Gestión de Clientes">
+          <div id="clientes-component-container">
+            <!-- La lista, búsqueda y formulario de clientes se inyectará aquí -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VISTA 4: REPORTES Y ANÁLISIS DE DATOS (Figura 7)
+             ========================================== -->
+        <section id="view-reportes" class="module-view" aria-label="Reportes Estadísticos y Métricas">
+          <div id="reportes-component-container">
+            <!-- Gráficos de facturación, efectividad y KPIs se inyectarán aquí -->
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ====================================================================
+           BARRA DE NAVEGACIÓN INFERIOR (TABBAR FIJA - Figuras 6 y 7)
+           ==================================================================== -->
+      <nav class="bottom-nav" id="bottom-nav" aria-label="Navegación principal de módulos">
+        
+        <!-- Tab 1: Calendario -->
+        <button type="button" class="nav-item active" data-target="view-calendario" data-title="CALENDARIO">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span>Calendario</span>
+        </button>
+
+        <!-- Tab 2: Cotizar -->
+        <button type="button" class="nav-item" data-target="view-cotizador" data-title="COTIZADOR INTELIGENTE">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <span>Cotizar</span>
+        </button>
+
+        <!-- Tab 3: Clientes -->
+        <button type="button" class="nav-item" data-target="view-clientes" data-title="CLIENTES">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>Clientes</span>
+        </button>
+
+        <!-- Tab 4: Reportes -->
+        <button type="button" class="nav-item" data-target="view-reportes" data-title="CLIENTES Y REPORTES">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          <span>Reportes</span>
+        </button>
+
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Scripts Globales y Módulos -->
+  <script src="assets/js/main.js?v=20261111_7"></script>
+  <script src="modules/reservas/reservas.js?v=20261111_7"></script>
+  <script src="modules/clientes/clientes.js?v=20261111_7"></script>
+  <script src="modules/cotizador/cotizador.js?v=20261111_7"></script>
+  <script src="modules/reportes/reportes.js?v=20261111_7"></script>
+</body>
+</html>
